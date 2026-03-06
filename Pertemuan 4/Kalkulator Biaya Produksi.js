@@ -1,18 +1,44 @@
-let biayaBahanBaku = Number(prompt("Masukkan biaya bahan baku:"));
-let biayaTenagaKerja = Number(prompt("Masukkan biaya tenaga kerja:"));
-let biayaOverhead = Number(prompt("Masukkan biaya overhead:"));
-let jumlahProduksi = Number(prompt("Masukkan jumlah produksi:"));
+// Menangkap elemen form dan output
+const form = document.getElementById("formProduksi");
+const output = document.getElementById("hasilOutput");
 
-let totalPerUnit = (biayaBahanBaku + biayaTenagaKerja + biayaOverhead) / jumlahProduksi;
+form.addEventListener("submit", function (event) {
+    // Mencegah refresh halaman
+    event.preventDefault();
 
-console.log("Biaya Bahan Baku: Rp " + biayaBahanBaku);
-console.log("Biaya Tenaga Kerja: Rp " + biayaTenagaKerja);
-console.log("Biaya Overhead: Rp " + biayaOverhead);
-console.log("Jumlah Produksi: " + jumlahProduksi);
-console.log("Total Biaya Produksi per Unit: Rp " + totalPerUnit.toFixed(2));
+    // Mengambil nilai input dan konversi ke Number (Sumber [1])
+    let biayaBahanBaku = Number(document.getElementById("bahanBaku").value);
+    let biayaTenagaKerja = Number(document.getElementById("tenagaKerja").value);
+    let biayaOverhead = Number(document.getElementById("overhead").value);
+    let jumlahProduksi = Number(document.getElementById("jumlahProduksi").value);
 
-if (jumlahProduksi < 100) {
-    console.log("Status: Biaya Tinggi (Ekonomi Skala Kecil)");
-} else {
-    console.log("Status: Biaya Efisien");
-}
+    // Validasi jumlah produksi (Sumber [1])
+    if (jumlahProduksi <= 0) {
+        output.innerHTML = "Jumlah produksi tidak valid!";
+        return; // Menghentikan proses jika tidak valid
+    }
+
+    // Rumus Total per Unit (Sumber [4], [2])
+    let totalPerUnit = (biayaBahanBaku + biayaTenagaKerja + biayaOverhead) / jumlahProduksi;
+
+    // Struktur percabangan untuk status biaya (Sumber [4], [2])
+    let status = "";
+    if (jumlahProduksi < 100) {
+        status = "Biaya Tinggi (Ekonomi Skala Kecil)";
+    } else {
+        status = "Biaya Efisien";
+    }
+
+    // Menampilkan hasil dengan innerHTML dan format Rupiah (Sumber [2])
+    output.innerHTML = "Total Biaya per Unit: Rp " +
+        totalPerUnit.toLocaleString("id-ID", { minimumFractionDigits: 2 }) +
+        "<br>Status Produksi: " + status;
+
+    // Log ke console sesuai instruksi (Sumber [3])
+    console.log("Total Biaya per Unit: " + totalPerUnit);
+    console.log("Status: " + status);
+    console.log("Biaya Bahan Baku: ", biayaBahanBaku);
+    console.log("Biaya Tenaga Kerja: ", biayaTenagaKerja);
+    console.log("Biaya Overhead: ", biayaOverhead);
+    console.log("Jumlah Produksi: ", jumlahProduksi);
+});

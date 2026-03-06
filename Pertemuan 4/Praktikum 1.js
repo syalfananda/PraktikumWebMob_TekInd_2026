@@ -19,50 +19,45 @@ console.log("Total saat ini: " + totalProduksi);
 let kekurangan = targetHarian - totalProduksi;
 console.log("Kekurangan target: " + kekurangan);
 
-//Simulasi data pembaca sensor (jam operasinonal)
+// Simulasi data pembacaan sensor (jam operasional)
 let jamOperasional = 1250; // dalam jam
-let batasMaksimal = 2000; // batas sebelum maintenance wajib
-
-console.log("---Cek Status Maintenance---");
-
+let batasMaksimal = 1200; // batas sebelum maintenance wajib
+console.log("--- Cek Status Maintenance ---");
 // Logika If/Else
 if (jamOperasional >= batasMaksimal) {
     console.log("PERINGATAN: Mesin mencapai batas maksimal!");
     console.log("Status: MAINTENANCE WAJIB (Stop Produksi)");
 } else if (jamOperasional > 1000) {
-    console.log("Status: SIAP HATI HATI (Segera jadwalkan maintenance)");
+    console.log("Status: SIAP HATI-HATI (Segera jadwalkan maintenance)");
 } else {
-    console.log("Status: BERJALAN NORMAL")
+    console.log("Status: BERJALAN NORMAL");
 }
 
 // Data Input
 let jamKerjaPlanned = 8; // Jam
 let jamKerjaAktual = 6.5; // Jam (Ada 1.5 jam breakdown)
-
 // Perhitungan
 let availability = (jamKerjaAktual / jamKerjaPlanned) * 100;
 
-// Pembuatan 2 angka di belakang koma
+// Pembulatan 2 angka di belakang koma
 availability = availability.toFixed(2);
-
-console.log("Planned Time: " + jamKerjaPlanned + " jam");
-console.log("Actual Time: " + jamKerjaAktual + " jam");
+console.log("Planned Time: " + jamKerjaPlanned + " Jam");
+console.log("Actual Time: " + jamKerjaAktual + " Jam");
 console.log("Availability: " + availability + "%");
-
-//Logika Penilaian  Kualitas Availability
+// Logika Penilaian Kualitas Availability
 if (availability >= 90) {
     console.log("Kategori: WORLD CLASS");
 } else if (availability >= 80) {
     console.log("Kategori: BAIK (Tetap monitor)");
 } else {
-    console.log("Kategori: BURUK (Perlu inventigasi penyebab breakdown)");
+    console.log("Kategori: BURUK (Perlu investigasi penyebab breakdown)");
 }
 
-let namaOperator = prompt("Masukkan nama operator:");
-let shiftKerja = prompt("Masukkan shift kerja (Pagi/Siang/Malam):");
 
+let namaOperator = prompt("Masukkan Nama Operator:");
+let shiftKerja = prompt("Masukkan Shift (Pagi/Siang/Malam):");
 if (shiftKerja === "Malam") {
-    alert("Halo " + namaOperator + ", Shift malam memiliki tambahan uang makan sebesar Rp 20.000");
+    alert("Halo " + namaOperator + ", Shift malam memiliki tambahan uang makan sebesar Rp 20.000.");
 } else {
     alert("Halo " + namaOperator + ", Selamat bekerja. Tetap semangat!");
 }

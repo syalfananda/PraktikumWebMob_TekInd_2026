@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Biaya Produksi</title>
+    <link rel="stylesheet" href="Kalkulator Biaya Produksi.css">
 </head>
-
 <body>
 
-    <h1>Syalfa Oktifa Nanda</h1>
-    <h2>23051430023</h2>
+    <div class="card">
+        <h2>Input Data Produksi</h2>
+        <form id="formProduksi">
+            <div class="field">
+                <label>Biaya Bahan Baku (Rp)</label>
+                <input type="number" id="bahanBaku" placeholder="Masukkan biaya bahan baku" required>
+            </div>
+            <div class="field">
+                <label>Biaya Tenaga Kerja (Rp)</label>
+                <input type="number" id="tenagaKerja" placeholder="Masukkan biaya tenaga kerja" required>
+            </div>
+            <div class="field">
+                <label>Biaya Overhead (Rp)</label>
+                <input type="number" id="overhead" placeholder="Masukkan biaya overhead" required>
+            </div>
+            <div class="field">
+                <label>Jumlah Produksi (Unit)</label>
+                <input type="number" id="jumlahProduksi" placeholder="Masukkan jumlah produksi" required>
+            </div>
+            <button type="submit">Hitung Biaya</button>
+        </form>
+    </div>
 
+    <div class="result-card">
+        <h2>Hasil Perhitungan</h2>
+        <div id="hasilOutput">Hasil akan muncul di sini dan juga di console browser.</div>
+    </div>
+
+    <!-- Script diletakkan di bawah agar elemen HTML terload dulu (mencegah error console) -->
     <script src="Kalkulator Biaya Produksi.js"></script>
-
+    <link rel="stylesheet" href="Kalkulator Biaya Produksi.css">
 </body>
-
 </html>
