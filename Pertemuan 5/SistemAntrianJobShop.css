@@ -1,0 +1,90 @@
+body {
+    font-family: Arial;
+    background: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0E2238;
+    text-align: center;
+}
+
+ul {
+    background: #D6C7B2;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+button {
+    background: #0E2238;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0F766E;
+}
+
+.progressContainer {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: #0F766E;
+    transition: width 0.2s;
+}
+
+/* efek loading berjalan */
+#progressBar::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 40px;
+    background: rgba(255, 255, 255, 0.4);
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-40px);
+    }
+
+    100% {
+        transform: translateX(300px);
+    }
+}
+
+#logProses {
+    margin-top: 15px;
+    background: #F2F2F2;
+    padding: 10px;
+    border-radius: 6px;
+    max-height: 150px;
+    overflow: auto;
+}
+
+.logItem {
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
+}
