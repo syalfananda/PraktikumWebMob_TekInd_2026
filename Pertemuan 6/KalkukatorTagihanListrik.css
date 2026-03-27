@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow:
+        0 15px 35px rgba(33, 150, 243, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid rgba(33, 150, 243, 0.2);
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(45deg, #2196f3, #21cbf3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #1565c0;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #bbdefb;
+    border-radius: 12px;
+    font-size: 17px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+input:focus {
+    border-color: #2196f3;
+    outline: none;
+    box-shadow:
+        0 0 0 4px rgba(33, 150, 243, 0.2),
+        0 5px 15px rgba(33, 150, 243, 0.15);
+    transform: translateY(-2px);
+    background: white;
+}
+
+input::placeholder {
+    color: #90caf9;
+}
+
+.result {
+    background: linear-gradient(135deg, #2196f3, #21cbf3, #03a9f4);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 25px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.result h3 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.result p {
+    font-size: 20px;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .result h3 {
+        font-size: 26px;
+    }
+}
