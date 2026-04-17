@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Produksi Harian - 1 Karyawan = 1 Shift/Hari</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="script_log.js">
+</head>
+<body>
+    <div class="container main-container">
+        <!-- Header -->
+        <div class="header-section mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="header-name">SYALFA OKTIFA NANDA</h1>
+                    <h5 class="header-nim">NIM: 23051430023</h5>
+                    <p class="header-subtitle"> 1 Karyawan = Maksimal 1 Shift per Hari</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Form Input -->
+            <div class="col-md-4">
+                <div class="input-card card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>📝 Input Data</span>
+                        <span class="badge bg-info" id="statusShift">Siap Input</span>
+                    </div>
+                    <div class="card-body">
+                        <form id="formProduksi">
+                            <div class="mb-3">
+                                <label class="form-label">📅 Tanggal</label>
+                                <input type="date" id="tanggal" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">👤 Karyawan</label>
+                                <select id="operator" class="form-select" required>
+                                    <option value="">Pilih Karyawan (10 Orang)</option>
+                                    <option value="Ahmad Santoso">1. Ahmad Santoso</option>
+                                    <option value="Budi Hartono">2. Budi Hartono</option>
+                                    <option value="Citra Dewi">3. Citra Dewi</option>
+                                    <option value="Dedi Kusuma">4. Dedi Kusuma</option>
+                                    <option value="Eka Putri">5. Eka Putri</option>
+                                    <option value="Fajar Rahman">6. Fajar Rahman</option>
+                                    <option value="Gina Sari">7. Gina Sari</option>
+                                    <option value="Hendra Wijaya">8. Hendra Wijaya</option>
+                                    <option value="Indah Lestari">9. Indah Lestari</option>
+                                    <option value="Joko Widodo">10. Joko Widodo</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Shift Kerja</label>
+                                <select id="shift" class="form-select" required>
+                                    <option value="">Pilih 1 Shift</option>
+                                    <option value="Pagi">Pagi (06:00 - 14:00)</option>
+                                    <option value="Siang">Siang (14:00 - 22:00)</option>
+                                    <option value="Malam"> Malam (22:00 - 06:00)</option>
+                                </select>
+                                <div class="invalid-feedback" id="shiftError">
+                                    Karyawan ini sudah kerja shift lain hari ini!
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"> Produksi (Unit)</label>
+                                <input type="number" id="jumlah" class="form-control" min="1" placeholder="Min 1 unit" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 btn-save" id="btnSubmit">
+                                💾 Simpan Log Produksi
+                            </button>
+                            <button type="button" id="btnHapusSemua" class="btn btn-danger w-100 mt-2">
+                                🗑️ Hapus Semua Data
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Tanggal</th>
+                                        <th>Karyawan</th>
+                                        <th>Shift</th>
+                                        <th>Unit</th>
+                                        <th>Total</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="LogProduksi_dropdown.js"></script>
+</body>
+</html>

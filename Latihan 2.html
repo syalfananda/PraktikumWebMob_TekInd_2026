@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Integrasi API Data Karyawan - Syalfa Oktifa Nanda (23051430023)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container mt-5">
+    <div class="text-center mb-4">
+        <h4 class="text-primary">Praktikum Integrasi API Data Karyawan</h4>
+        <h5 class="text-muted">Oleh: <strong>Syalfa Oktifa Nanda</strong></h5>
+        <h6 class="text-secondary">NIM: <strong>23051430023</strong></h6>
+    </div>
+
+    <h2 class="mb-4">Data Karyawan (Dari Server)</h2>
+    <div class="mb-3">
+        <button id="btnLoad" class="btn btn-primary me-2">Muat Semua Data</button>
+        <button id="btnFilter" class="btn btn-warning me-2">Filter Kota 's'</button>
+        <button id="btnTambah" class="btn btn-success">Tambah Karyawan Baru</button>
+        <div id="loading" class="spinner-border text-primary d-none ms-2" role="status"></div>
+    </div>
+
+    <!-- Info Filter -->
+    <div id="infoFilter" class="alert alert-info d-none mb-3">
+        <strong>Filter aktif:</strong> Menampilkan hanya karyawan dari kota yang mengandung huruf "s"
+    </div>
+
+    <div class="row" id="containerKaryawan">
+        <!-- Card karyawan akan muncul di sini -->
+    </div>
+    <script src="Latihan 2.js"></script>
+</body>
+
+</html>
